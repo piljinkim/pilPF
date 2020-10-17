@@ -1,0 +1,416 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../piljin/images/HRlogo.PNG" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/normalize.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject'] = r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-160190724-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script data-ad-client="ca-pub-1462947422010620" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>HOBBYLAND</title>
+    <link rel="stylesheet" type="text/css" href="../piljin/style/project-view.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/github-markdown.min.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/github.min.css">
+  </head>
+  <body>
+    <div class="wrapper cannot-drag">
+      <div class="portfolio-header">
+        <div class="header-wrapper">
+          <div class="header">
+            <div class="left"><a href="../piljin/index.html">
+                <div class="mini-profile" style="background-image:url(../piljin/images/Dog.jpg);"></div></a></div>
+            <div class="content">
+              <div class="title" ><a href="../piljin/index.html">
+                  <!--b= portfolioData.profile.name--><b>프로젝트</b></a><b>&nbsp;/&nbsp;</b><span class="portfolio-name">HOBBYLAND</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-content can-drag">
+        <div class="tech-stack-wrapper"><b>　기술</b><br>
+          <div><span class="item">Java</span>
+               <span class="item">Javascript</span>
+               <span class="item">Jsp</span>
+               <span class="item">Servlet</span>
+          </div>
+        </div>
+        <div class="impact">
+          <div class="project-name">HOBBYLAND</div>
+          <div class="project-summary">취미 , 자기개발을 위한 강의 수강신청 사이트</div>
+          <div class="project-date"><span class="round-box">2020년 05월 04일 ~ 2020년 06월 30일</span></div>
+         
+          <div class="project-item"><span class="label">DB설계</span>
+          </div>
+          <ul>
+            <li><a href="../piljin/images/semiDB1.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/semiDB1.PNG"></a></li>
+            <li><a href="../piljin/images/semiDB2.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/semiDB2.PNG"></a></li>
+            <li><a href="../piljin/images/semiDB3.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/semiDB3.PNG"></a></li>
+            <li><a href="../piljin/images/semiDB4.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/semiDB4.PNG"></a></li>
+            
+          </ul>
+        </div>
+        <div class="content">
+          <div class="title">Proejct 세부내용</div>
+          <div class="desc-box">
+            <div class="content">
+              <div class="markdown-body"><h1>HOBBYLAND</h1><br>
+<h2 >주요 기능<h5>빨간색 기능은 직접 구현한 기능입니다.</h5></h2>
+<ol>
+<li style="color: red;">회원관련기능</li>
+<li>튜터 기능</li>
+<li>관리자 기능</li>
+</ol>
+<br>
+<h2 >핵심구현기능 작동 예시</h2>
+<br>
+<h3>◆　메인페이지</h3>
+<h5>우측 상단에 login과 sign in버튼으로 회원가입과 로그인페이지에 접근할 수 있습니다.</h5><br>
+<img src="../piljin/images/semi-main.PNG"><br>
+<hr id="line">
+<br><br>
+<h3>◆　회원가입</h3>
+<h5>이름 , 이메일 , 비밀번호를 입력한 후 가입 할 수 있습니다.</h5>
+<h5>이메일을 아이디로 사용하기 때문에 중복검사를 진행합니다 결과는 Ajax를 통해 실시간으로 확인 할 수 있습니다.</h5>
+<h5>입력 된 이름과 비밀번호가 가입조건에 알맞는지 Javascript와 Jquery를 사용해 유효성검사를  진행하였습니다.</h5>
+<img style="width: 400px; height: 550px;"   src="../piljin/images/semi-join.PNG">
+<h5>Javascript와 Jquery를 사용해 유효성검사 진행</h5>
+<pre><code>
+  function joinValidate(){
+    // 비밀번호 일치 여부
+    if($("#joinForm input[name=PWD1]").val() != $("#joinForm input[name=PWD2]").val()){
+      alert("비밀번호가 동일하지 않습니다.");
+      $("#joinForm input[name=PWD2]").select();
+      return false;
+    }
+    // 이름 유효성 검사
+    if(!/^[가-힣]{2,}$/.test($("#joinForm input[name=NAME]").val())){
+      alert("이름은 공백 없이 한글로 2글자 이상 입력해야 해야합니다 ");
+      $("#joinForm input[name=NAME]").select();
+      return false;
+    }
+    // 비밀번호 유효성 검사 
+    if(!/^[a-zA-Z0-9]{8,}$/.test($("#joinForm input[name=PWD1]").val())){
+      alert("비밀번호 조건에 맞지 않습니다.");
+      $("#joinForm input[name=PWD1]").select();
+      return false;
+    }	
+    if($("#me").text() == "사용중인 이메일 입니다."){
+      alert("이메일 중복입니다.");
+      $("#EMAIL").select();
+      return false;
+    }
+    return true;
+  }
+</code></pre><br>
+<h5>Ajax를 활용해 실시간으로 이메일 중복체크</h5>
+<img style="width: 400px; height: 500px;"   src="../piljin/images/semi-join2.PNG"><br>
+<pre><code>
+  $("#EMAIL").blur(function() {
+    var input = $('#EMAIL').val();
+    $.ajax({
+      url : "<%= request.getContextPath() %>/idCheck.me",
+      type : 'post',
+      data : {input:input},	
+      success : function(data) {
+        if (data == "fail") {
+            $("#me").text("사용중인 이메일 입니다.");
+            
+          } else {
+            $("#me").text("");
+            if($("#EMAIL").val() == ""){	
+            }	
+          }
+        }, error : function() {
+            console.log("실패");
+        }
+      });
+    });
+</code></pre><br>
+<h5>모든 조건이 부합하다면 입력 된 이메일로 인증번호를 보내는 방식으로 본인인증을 진행합니다</h5>
+<h5>Ajax를 활용해 실시간으로 이메일 발송이 됩니다.</h5>
+<img style="width: 400px; height: 500px;"   src="../piljin/images/semi-join3.PNG"><br>
+<pre><code>
+  $(function(){
+	
+    xhr = new XMLHttpRequest();
+    
+    xhr.onreadystatechange = function(){
+  
+      if(xhr.readyState == 4){
+  
+        if(xhr.status == 200){
+          console.log("ajax 통신 성공!");
+          
+          var str = xhr.responseText;
+          
+          alert(str);
+          
+          
+        }else if(xhr.status == 404){
+          console.log("ajax 통신 실패!");
+        }
+      }
+    }
+    
+    var email = "<%= email %>";
+    var input = "<%= new RandomNum().excuteGenerate() %>";
+  
+    // open() : 서버와 데이터 교환 시 필요한 정보 입력(요청 방식, 대상(서버), 비동기/동기)
+    xhr.open("GET", "<%= request.getContextPath() %>/emailse.me?input="+ input + "&email=" + email, true);
+    
+    // send() : 서버로 데이터 교환 요청
+    xhr.send();
+    
+  });
+</code></pre>
+<pre><code>
+  $("#OK").click(function() {
+
+    xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+      if(xhr.readyState == 4){
+        if(xhr.status == 200){
+          console.log("jsAjax1() - ajax 통신 성공!");
+    
+          var str = xhr.responseText;
+          alert(str);
+          
+  
+          if(str == "인증에 성공했습니다."){
+            document.getElementsByName("OK")[0].disabled = true;
+            location.href = '<%= request.getContextPath() %>/insert.me';
+          }
+          
+        }else if(xhr.status == 404){
+          console.log("jsAjax1() - ajax 통신 실패!");
+        }
+      }
+    }
+    
+    var AuthenticationUser = document.getElementsByName("OO")[0].value;
+    // 3. open() : 서버와 데이터 교환 시 필요한 정보 입력(요청 방식, 대상(서버), 비동기/동기)
+    xhr.open("GET", "<%= request.getContextPath() %>/emailck.me?AuthenticationUser=" + AuthenticationUser, true);
+    // 4. send() : 서버로 데이터 교환 요청
+    xhr.send();
+    
+  });
+</code></pre>
+<h5>이메일 전송 Servlet</h5>
+<pre><code>
+  @WebServlet("/emailse.me")
+public class MemberEmailSend extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MemberEmailSend() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String input = request.getParameter("input");
+		String email = request.getParameter("email");
+		
+		System.out.println(input + " 이게 인풋 " );
+		System.out.println(email + " 이게 이메일 ");
+		// 응답 데이터 하는 인코딩 필요
+		int result = gmailSend(email, input);
+		
+		response.setCharacterEncoding("utf-8");
+		
+		if(result == 1) {
+			HttpSession saveKey = request.getSession();
+            saveKey.setAttribute("AuthenticationKey", input);
+            
+			response.getWriter().print("이메일이 전송되었습니다.");
+		}else {
+			response.getWriter().print("이메일 전송에 실패했습니다.");
+		}
+	
+		
+		
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+	
+	public static int gmailSend(String email, String input) {
+        // 발신자 이메일 패스워드 입력하고 보안 푸세요
+		// 구글의 보안 수준이 낮은 앱의 액세스로 들어가 "사용함" 으로 설정을 변경해주면 된다.
+		
+		String user = "abc@gmail.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
+        String password = "1234";   // 패스워드
+        
+        // SMTP 서버 정보를 설정한다.
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com"); 
+        prop.put("mail.smtp.port", 465); 
+        prop.put("mail.smtp.auth", "true"); 
+        prop.put("mail.smtp.ssl.enable", "true"); 
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        
+ 
+        Session session = Session.getDefaultInstance(prop, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user, password);
+            }
+        });
+
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+
+            //수신자메일주소
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); 
+
+            // Subject
+            message.setSubject("하비랜드 회원가입 인증코드 발송"); //메일 제목을 입력
+
+            // Text
+            message.setText("인증코드 : " + input);    //메일 내용을 입력
+          
+            				
+            // send the message
+            Transport.send(message); ////전송
+            //System.out.println("message sent successfully...");
+
+            return 1;
+        } catch (AddressException e) {
+            e.printStackTrace();
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+		return 0;
+    }
+
+}
+
+</code></pre>
+<h5>이메일 체크 Servlet</h5>
+<pre><code>
+  @WebServlet("/emailck.me")
+public class MemberEmailCheck extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public MemberEmailCheck() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String AuthenticationKey = (String)request.getSession().getAttribute("AuthenticationKey");
+        String AuthenticationUser = request.getParameter("AuthenticationUser");
+        
+        response.setCharacterEncoding("utf-8");
+
+        if(!AuthenticationKey.equals(AuthenticationUser))
+        {
+
+        	response.getWriter().print("인증에 실패했습니다.");
+        	
+        }else {
+        	response.getWriter().print("인증에 성공했습니다.");
+        }
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
+
+</code></pre><br>
+<hr id="line">
+<br><br>
+<h3>◆　로그인</h3>
+<h5>이메일과 패스워드를 입력하여 로그인 할 수 있습니다.</h5>
+<img style="width: 500px; height: 550px;"   src="../piljin/images/semi-login.PNG">
+<br>
+<hr id="line">
+<br><br>
+<h3>◆　비밀번호 변경</h3>
+<h5>회원의 비밀번호를 변경할 수 있습니다. Jquery를 사용하여 유효성검사를 진행합니다.</h5>
+<img style="width: 500px; height: 550px;"   src="../piljin/images/semi-ch.PNG">
+<br>
+<hr id="line">
+<br><br>
+<h3>◆　비밀번호 찾기</h3>
+<h5>1.이메일 입력 후 다음으로 진행합니다.</h5>
+<img style="width: 600px; height: 500px;"   src="../piljin/images/semi-find1.PNG">
+<br>
+<h5>2.Ajax를 통해 실시간으로 인증번호 전송하여 본인인증을 진행합니다.</h5>
+<img style="width: 600px; height: 500px;"   src="../piljin/images/semi-find2.PNG">
+<br>
+<h5>3.비밀번호 변경할 수 있습니다.</h5>
+<img style="width: 600px; height: 500px;"   src="../piljin/images/semi-find3.PNG">
+<br>
+<hr id="line">
+<br><br>
+<h3>◆　마이페이지</h3>
+<h5>프로필 사진 등록 및 개인정보 수정이 가능합니다.</h5>
+<h5>아직 입력되지 않은 정보는 공백으로 출력되게끔 하였습니다.</h5>
+<img style="width: 800px; height: 550px;"   src="../piljin/images/semi-pf.PNG">
+<br>
+<hr id="line">
+<br><br>
+<h3>◆　위시리스트</h3>
+<h5>위시리스트 저장 후 나의 위시리스트에서 해당 내용을 확인 할 수 있습니다.</h5>
+<img style="width: 700px; height: 200px;"   src="../piljin/images/semi-wish.PNG">
+<hr id="line">
+
+
+
+
+
+
+<h2 >기타</h2>
+<ul>
+<li>수강내역확인 페이지 , 위시리스트 등록 기능도 구현 하였습니다.</li>
+
+</ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content">
+          여기에다 멀적으면 좋을깡..
+        </div>
+      </div>
+    </div>
+    <script src="../piljin/style/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
