@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../piljin/images/logo_navy1.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/normalize.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject'] = r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-160190724-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script data-ad-client="ca-pub-1462947422010620" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>KASSCNEMA</title>
+    
+    <link rel="stylesheet" type="text/css" href="../piljin/style/project-view.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/github-markdown.min.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/github.min.css">
+  </head>
+  <body>
+    <div class="wrapper cannot-drag">
+      <div class="portfolio-header">
+        <div class="header-wrapper">
+          <div class="header">
+            <div class="left"><a href="../piljin/index.html">
+                <div class="mini-profile" style="background-image:url(../piljin/images/Dog.jpg);"></div></a></div>
+            <div class="content">
+              <div class="title" ><a href="../piljin/index.html">
+                  <!--b= portfolioData.profile.name--><b>프로젝트</b></a><b>&nbsp;/&nbsp;</b><span class="portfolio-name">KASSCNEMA</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-content can-drag">
+        <div class="tech-stack-wrapper"><b>　기술</b><br>
+          <div><span class="item">Java</span>
+               <span class="item">Javascript</span>
+               <span class="item">Jsp</span>
+               <span class="item">Spring Framework</span>
+               <span class="item">Mybatis</span>
+          </div>
+        </div>
+        <div class="impact">
+          <div class="project-name">KASSCNEMA</div>
+          <div class="project-summary">영화 예매 , VOD 대여 , 영화굿즈 및 스낵 판매 사이트</div>
+          <div class="project-date"><span class="round-box">2020년 07월 07일 ~ 2020년 09월 22일</span></div>
+         
+          <div class="project-item"><span class="label">DB설계</span>
+          </div>
+          <ul>
+            <li><a href="../piljin/images/kass-DB1.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/kass-DB1.PNG"></a></li>
+            <li><a href="../piljin/images/kass-DB2.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/kass-DB2.PNG"></a></li>
+            <li><a href="../piljin/images/kass-DB3.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/kass-DB3.PNG"></a></li>
+            <li><a href="../piljin/images/kass-DB4.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/kass-DB4.PNG"></a></li>
+            <li><a href="../piljin/images/kass-DB5.PNG" style="cursor:pointer;" data-lightbox="projectImages" data-title="Project-Images"><img src="../piljin/images/kass-DB5.PNG"></a></li>
+            
+            
+          </ul>
+        </div>
+        <div class="content">
+          <div class="title">Proejct 세부내용</div>
+          <div class="desc-box">
+            <div class="content">
+              <div class="markdown-body"><h1>KASSCNEMA</h1><br>
+<h2 >주요 기능<h5>빨간색 기능은 직접 구현한 기능입니다.</h5></h2>
+<ol>
+<li>회원관련기능</li>
+<li>영화 관리 및 등록 기능</li>
+<li  style="color: red;">VOD 관리 및 등록 기능</li>
+<li>굿즈 , 스낵 관리 및 등록 기능</li>
+</ol><br>
+<h2 >핵심구현기능 작동 예시</h2><br>
+<h3>◆　메인페이지</h3>
+<h5>우측 상단에 로그인 버튼과 회원가입 버튼으로 해당 기능에 접근 할 수 있습니다.</h5>
+<h5>메뉴바에서 원하는 페이지로 이동할 수 있습니다.</h5>
+<img src="../piljin/images/fina-main1.PNG"><br>
+<h5>관리자계정으로 로그인 시 관리 모드로 접근할 수 있습니다.</h5>
+<img src="../piljin/images/fina-login.PNG"><br><br>
+<img src="../piljin/images/fina-main2.PNG"><br>
+<hr id="line"><br><br>
+<h3>◆　VOD 관리</h3>
+<h5>관리자계정으로 로그인 후 VOD 관리 메뉴로 접근 할 수 있습니다.</h5>
+<h5>VOD 정보등록메뉴에서 원하는 영화를 검색하여 VOD로 등록하여 판매리스트에 업데이트 할 수 있습니다.(아무값도 입력하지않고 검색 시 전체결과 출력) </h5>
+<h5>DB에 저장된 영화 데이터 중 현재 상영중이 아니며 VOD 리스트에 등록되지 않은 데이터만 검색결과에 출력됩니다.</h5>
+<img style="width: 940px; height: 250px;"   src="../piljin/images/fina-admin.PNG"><br><br>
+<h5>등록 버튼을 누를 시 VOD 판매리스트에 등록됩니다.</h5>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/fina-inse.PNG">
+<h5>VOD 삭제리스트는 VOD 리스트에 등록 되어 있는 데이터만 출력됩니다.</h5>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/fina-dele.PNG"><br>
+<hr id="line"><br><br>
+<h3>◆　VOD 리스트</h3>
+<h5>VOD 메뉴로 접근하면 VOD 등록 된 영화 데이터가 출력 됩니다.</h5>
+<h5>왼쪽 장르별 메뉴바를 통해 장르별로 리스트를 출력할 수 있습니다.</h5>
+<h5>페이징 처리를 구현하였습니다. </h5>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/fina-list.PNG"><br>
+<h5>영화 리스트 출력기능구현 코드</h5><br>
+<pre><code>
+    @RequestMapping("vlist.do")
+	public ModelAndView vlist(ModelAndView mv, @RequestParam(value = "page", required = false) Integer page, 
+			@RequestParam(value = "testa", required = false) String testa) {
+	
+		int category = Integer.parseInt(testa);
+		
+		int currentPage = page != null ? page : 1;
+		
+		int listCount = vService.selectListCount(category);
+		
+		PageInfo pi = PaginationV.getPageInfo(currentPage, listCount);
+		
+		ArrayList<Movie> list = vService.selectList(pi ,category);
+		
+		if(list != null) {
+			mv.addObject("list", list);
+			mv.addObject("pi", pi);
+			mv.addObject("cate" , category);
+			mv.setViewName("vod/list");
+		} else {
+			throw new VodException("게시글 목록 조회에 실패하였습니다");
+		}
+		return mv;
+		
+	}
+</code></pre>
+<h5>리스트 출력 DAO</h5>
+<pre><code>
+    public ArrayList<Movie> selectList(PageInfo pi , int category) {
+		int offset = (pi.getCurrentPage()-1) * pi.getBoardLimit();
+		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
+		String test = "";
+		if(category > 0) {
+			test += category;
+			return (ArrayList)sqlSession.selectList("vodMapper.selectList" , test , rowBounds );
+		}else {
+			
+			return (ArrayList)sqlSession.selectList("vodMapper.selectList" ,test , rowBounds );	
+		}
+	}
+</code></pre>
+<h5>리스트 출력 SQL문</h5>
+<pre><code>
+    SELECT *
+    FROM MOVIE
+    JOIN ATTACHMENT USING(MOVIE_NO)
+    WHERE MOVIE_RSTATUS = 'N'
+    AND FILE_STATUS = 'Y'
+    AND SORT_CODE = 20
+    AND GENRE_CODE LIKE '%' || #{category} || '%'
+    AND  MOVIE_VOD_STATUS = 'Y'
+    
+</code></pre>
+<hr id="line"><br><br>
+<h3>◆　상세페이지</h3>
+<h5>VOD 리스트에서 해당 VOD를 클릭시 상세페이지로 이동합니다</h5>
+<h5>VOD 상세페이지에서는 해당 VOD의 정보(스틸컷 , 예고편(유튜브) , 리뷰 등)을 확인 할 수 있습니다. </h5>
+<h5>또한 내 장바구니 , 위시리스트로 접근할 수 있으며 해당 VOD를 위시리스트에 저장 , 장바구니 담기 , 구매할 수 있습니다. </h5>
+<img style="width: 950px; height: 550px;"   src="../piljin/images/fina-detail.PNG"><br>
+<hr id="line"><br><br>
+<h3>◆　위시리스트</h3>
+<h5>위시리스트에 저장한 VOD를 마이페이지에서 확인 할 수 있습니다.</h5>
+<h5>클릭 시 해당 VOD 상세페이지로 이동하게 됩니다.</h5>
+<img style="width: 860px; height: 500px;"   src="../piljin/images/fina-wish.PNG"><br>
+<hr id="line"><br><br>
+<h3>◆　장바구니</h3>
+<h5>담기 버튼을 눌러 장바구니에 원하는 VOD를 담아 동시에 구매할 수 있습니다.</h5>
+<h5>원하는 VOD 장바구니에서 삭제할 수 있습니다.</h5>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/fina-cart1.PNG"><br>
+<hr id="line"><br><br>
+<h3>◆　구매하기</h3>
+<h5>원하는 VOD를 구매할 수 있습니다</h5>
+<h5>결제방식을 선택하여 진행할 수 있습니다.</h5>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/fina-buy1.PNG">
+<hr id="line"><br><br>
+<h3>◆　시청하기</h3>
+<h5>결제한 VOD는 마이페이지 구매내역에서 VOD시청이 가능합니다.</h5>
+<img style="width: 900px; height: 500px;"   src="../piljin/images/fina-buy.PNG"><br><br>
+<h5>VOD 바로보기를 통해 영상 관람이 가능합니다.</h5><br>
+<img style="width: 900px; height: 500px;"   src="../piljin/images/fina-view.PNG">
+<hr id="line">
+
+
+
+
+
+
+
+<h2 >기타</h2>
+<ul>
+<li>모든 기능은 로그인 후 진행할 수 있게끔 구현하였습니다.</li>
+
+</ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div id="last">
+          <a href="../piljin/index.html" >　〈　Back</a>
+          <a style="display:scroll;position:fixed;bottom:60px;right:100px;" href="#">▲UP</a> 
+        </div>
+      </div>
+    </div>
+  
+    <script src="../piljin/style/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
