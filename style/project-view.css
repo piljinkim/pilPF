@@ -227,6 +227,16 @@
     height: 3px;
     color: rgb(108 ,192 , 145);
 }
+#last{
+    display: table-cell;
+    vertical-align: middle;
+    border-radius: 5px;
+    background-color: rgb(108 ,192 , 145);
+    width: 1000px;
+    height: 50px;
+    
+}
+
 
 @media only screen and (max-width: 768px) {
    .wrapper {
