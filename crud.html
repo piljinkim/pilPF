@@ -219,7 +219,7 @@
 <img style="width: 700px; height: 550px;"   src="images/crud-noti1.PNG"><br><br><br>
 <h5>게시글을 읽어올 수 있습니다.</h5>
 <h5>게시글 검색기능 또한 구현하였습니다.</h5><br>
-<img style="width: 800px; height: 550px;"   src="images/crud-noti3.PNG"><br><br><br>
+<img style="width: 800px; height: 550px;"   src="images/crud-noti3.PNG"><br><br><br><br><br><br>
 <img style="width: 500px; height: 700px;"   src="images/crud-noti4.PNG">
 <hr id="line"><br><br>
 
@@ -318,7 +318,28 @@
 <h3>◆　메인페이지(조회수증가)</h3>
 <h5>메인페이지에서 조회수가 높은순으로 5개의 게시글을 보여줍니다</h5>
 
-<img style="width: 860px; height: 500px;"   src="images/crud-list.PNG"><br>
+<img style="width: 860px; height: 500px;"   src="images/crud-list.PNG"><br><br><br>
+<h5>게시글을 읽어올때 쿠키를 활용한 조회수 증가처리</h5>
+<pre><code>
+  
+  // 쿠키 값을 이용하여 게시글 읽음 여부 확인
+		boolean flag = false;
+		Cookie[] cookies = request.getCookies();
+		if(cookies != null) {
+			for(Cookie c : cookies) {
+				if(c.getName().equals("bId"+bId)) {
+					// 해당 게시글에 대한 쿠키 존재(이미 게시글을 읽었음)
+					flag = true;
+				}
+			}
+			if(!flag) {	// 게시글을 처음 읽을 경우 쿠키 저장하기
+				Cookie c = new Cookie("bId"+bId, String.valueOf(bId));
+				c.setMaxAge(1 * 24 * 60 * 60); // 하루동안 저장
+				response.addCookie(c);
+			}
+			board = bService.selectBoard(bId, flag);
+		}
+</code></pre>
 <hr id="line">
 <h2 >기타</h2>
 <ul>
