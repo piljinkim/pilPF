@@ -113,7 +113,7 @@
 		
 		PageInfo pi = PaginationV.getPageInfo(currentPage, listCount);
 		
-		ArrayList<Movie> list = vService.selectList(pi ,category);
+		ArrayList&lt;Movie&gt; list = vService.selectList(pi ,category);
 		
 		if(list != null) {
 			mv.addObject("list", list);
@@ -129,11 +129,11 @@
 </code></pre>
 <h5>리스트 출력 DAO</h5>
 <pre><code>
-    public ArrayList<Movie> selectList(PageInfo pi , int category) {
+    public ArrayList&lt;Movie&gt; selectList(PageInfo pi , int category) {
 		int offset = (pi.getCurrentPage()-1) * pi.getBoardLimit();
 		RowBounds rowBounds = new RowBounds(offset, pi.getBoardLimit());
 		String test = "";
-		if(category > 0) {
+		if(category &gt; 0) {
 			test += category;
 			return (ArrayList)sqlSession.selectList("vodMapper.selectList" , test , rowBounds );
 		}else {
