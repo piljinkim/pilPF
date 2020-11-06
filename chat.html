@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="../piljin/images/chat_icon.PNG" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/normalize.css">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject'] = r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-160190724-3', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script data-ad-client="ca-pub-1462947422010620" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <title>WebSocket 채팅</title>
+    
+    <link rel="stylesheet" type="text/css" href="../piljin/style/project-view.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/github-markdown.min.css">
+    <link rel="stylesheet" type="text/css" href="../piljin/style/github.min.css">
+  </head>
+  <body>
+    <div class="wrapper cannot-drag">
+      <div class="portfolio-header">
+        <div class="header-wrapper">
+          <div class="header">
+            <div class="left"><a href="../piljin/index.html">
+                <div class="mini-profile" style="background-image:url(../piljin/images/Dog.jpg);"></div></a></div>
+            <div class="content">
+              <div class="title" ><a href="../piljin/index.html">
+                  <!--b= portfolioData.profile.name--><b>프로젝트</b></a><b>&nbsp;/&nbsp;</b><span class="portfolio-name">WebSocket 채팅</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-content can-drag">
+        <div class="tech-stack-wrapper"><b>　기술</b><br>
+          <div><span class="item">Java</span>
+               <span class="item">Javascript</span>
+               <span class="item">Jsp</span>
+               <span class="item">Spring Framework</span>
+               <span class="item">WebSocket</span>
+          </div>
+        </div>
+        <div class="impact">
+          <div class="project-name">WebSocket 채팅</div>
+          <div class="project-summary">WebSocket을 활용한 채팅기능</div>
+          <div class="project-date"><span class="round-box">2020년 07월 10일 ~ 2020년 07월 13일</span></div>
+         
+          <div class="project-item"><span class="label"></span>
+          </div>
+          <ul>
+          </ul>
+        </div>
+        <div class="content">
+          <div class="title">Proejct 세부내용</div>
+          <div class="desc-box">
+            <div class="content">
+              <div class="markdown-body"><h1>WebSocket 채팅</h1><br>
+<h2 >주요 기능<h5>빨간색 기능은 직접 구현한 기능입니다.</h5></h2>
+<ol>
+<li  style="color: red;">채팅기능</li>
+</ol><br>
+<h2 >핵심구현기능 작동 예시</h2><br>
+<h3>◆　입장하기</h3>
+<h5>닉네임을 입력후 입장 버튼을 누르면 채팅방에 입장할 수 있습니다.</h5>
+<h5>로그인한 사용자를 세션에 저장합니다.</h5>
+<img src="../piljin/images/chat_join.PNG"><br><br>
+<img src="../piljin/images/chat_join1.PNG"><br><br>
+
+
+<hr id="line"><br><br>
+<h3>◆　채팅하기</h3>
+<h5>입장 후 채팅페이지로 이동하게 됩니다. </h5>
+<img style="width: 940px; height: 400px;"   src="../piljin/images/chat_main.PNG"><br><br>
+<h5>메세지를 입력하고 전송하여 타인과 실시간으로 대화할 수 있습니다.</h5>
+<img style="width: 900px; height: 100px;"   src="../piljin/images/chat_talk.PNG"><br><br><br>
+<img style="width: 940px; height: 400px;"   src="../piljin/images/chat_talk1.PNG"><br><br>
+<h5>JSP 에서  메세지 전송 관련 메소드 </h5><br>
+
+<pre><code>
+  
+  /* SockJS 객체를 생성 - 보낼 url 경로를 매개변수로 등록함 */
+	var sock = new SockJS("&lt;c:url value='/echo'/&gt;");
+	
+	// : 웹 소켓 처리 객체에서 전달 받은 TextMessage를 처리하는 함수
+	sock.onmessage = onMessage;
+
+  
+  
+  $(function(){
+		// 전송하기 버튼을 클릭했을 때
+		$("#sendBtn").click(function(){
+			
+			sendMessage();
+	
+			$("#message").val('');
+		});
+  })
+  
+  function sendMessage(){
+    /* 매핑 된 핸들러 객체의 handleTextMessage 메소드가 실행 */
+    sock.send($("#message").val());
+  }
+</code></pre>
+<pre><code>
+  
+  // 웹 소켓 처리 객체에서 전달 받은 TextMessage를 처리하는 함수
+	function onMessage(evt){
+		var data = evt.data;	// new TextMessage 객체로 보내준 값을 받아옴
+		var strArray = data.split("|"); // 데이터 파싱 처리 하기
+
+		
+		// 채팅 시간
+		var today = new Date();
+		var printDate = today.getFullYear() + "/" 
+					+ (today.getMonth()+1) + "/"
+					+ today.getDate() + " "
+					+ today.getHours() + ":"
+					+ today.getMinutes() + ":"
+					+ today.getSeconds();
+		
+		// 채팅 창에 입력 값이 있어서 표현해야 하는 경우
+		if(strArray.length &gt; 1){
+			sessionId = strArray[0];
+			message = strArray[1];
+			host = strArray[2].substr(1, strArray[2].indexOf(":")-1);
+			userName = strArray[3];
+			
+			var ck_host = '${ host }';
+	
+			
+			/* 서버에서 데이터를 전송할 경우 분기 처리*/
+			if(host == ck_host || (host == 0 && ck_host.includes('0:0:'))){
+				// 2개 아이피가 일치 ==&gt; 내가 보낸 메세지로 출력
+				var printHTML = "&lt;div class='well' style='margin-left: 30%;'&gt;";
+				printHTML += "&lt;div class='alert alert-info'&gt;";
+				printHTML += "&lt;sub&gt;"+printDate+"&lt;/sub&gt;&lt;br/&gt;";
+				printHTML += "&lt;strong&gt;["+userName+"] : "+message+"&lt;/strong&gt;";
+				printHTML += "&lt;/div&gt;";
+				printHTML += "&lt;/div&gt;";
+				$('#chatdata').append(printHTML);
+			}else{
+				// 다른 사용자가 보낸 메세지
+				var printHTML = "&lt;div class='well'  style='margin-left: -5%;margin-right:30%;'&gt;";
+				printHTML += "&lt;div class='alert alert-warning'&gt;";
+				printHTML += "&lt;sub&gt;"+printDate+"&lt;/sub&gt;&lt;br/&gt;";
+				printHTML += "&lt;strong&gt;["+userName+"] : "+message+"&lt;/strong&gt;";
+				printHTML += "&lt;/div&gt;";
+				printHTML += "&lt;/div&gt;";
+				$('#chatdata').append(printHTML);
+			}		
+		}
+		
+	}
+</code></pre><br><br>
+<h5>EchoHandler 객체에서 전송 관련 메소드</h5>
+<pre><code>
+  
+  public class EchoHandler extends TextWebSocketHandler{ 
+    // 다중 사용자 이용 시 각 세션을 보관할 list
+    private List&lt;WebSocketSession&gt; sessionList = new ArrayList&lt;&gt;();
+  
+    
+    // 메세지를 전송하는 메소드
+    @Override
+    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
+      
+      // list에 추가 된 인원 모두에게 메세지를 발송함
+      for(WebSocketSession wss : sessionList) {
+        wss.sendMessage(new TextMessage(session.getId() + "|" +
+                        message.getPayload() + "|" +
+                        session.getRemoteAddress() + "|" +
+                        session.getAttributes().get("userName")));
+      }
+  
+      super.handleTextMessage(session, message);
+    }
+      
+  }
+</code></pre><br><br>
+<h5>EchoHandler 객체를 springbean으로 등록 , websocket:handler로 등록</h5>
+<pre><code>
+  &lt;beans:bean id="echoHandler" class="com.pj.websocket.common.EchoHandler"/&gt;
+	&lt;websocket:handlers&gt;
+  &lt;websocket:mapping handler="echoHandler" path="/echo"/&gt;
+  &lt;websocket:handshake-interceptors&gt;
+  &lt;beans:bean class="org.springframework.web.socket.server.support.HttpSessionHandshakeInterceptor"/&gt;
+  &lt;/websocket:handshake-interceptors&gt;
+  &lt;websocket:sockjs/&gt;
+	&lt;/websocket:handlers&gt;
+</code></pre><br><br>
+<h5>다른 사용자에서 메세지 내용을 확인할 수 있습니다.</h5>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/chat_talk2.PNG"><br><br>
+<h5>다른 사용자에서 메세지를 보낼 수 있습니다.</h5><br>
+<img style="width: 900px; height: 100px;"   src="../piljin/images/chat_talk3.PNG"><br><br>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/chat_talk4.PNG"><br><br><br>
+<h5>마찬가지로 다른 사용자에서 메세지 내용을 확인할 수 있습니다.</h5>
+<img style="width: 900px; height: 550px;"   src="../piljin/images/chat_talk5.PNG"><br><br><br>
+<h5>퇴장시 알람 메세지가 출력됩니다.</h5>
+<img style="width: 900px; height: 250px;"   src="../piljin/images/chat_talk6.PNG"><br><br><br>
+
+<hr id="line"><br><br>
+
+<h2 >기타</h2>
+<ul>
+
+
+</ul>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <br><br>
+        <div id="last">
+          <a href="../piljin/index.html" >　〈　Back</a>
+          <a style="display:scroll;position:fixed;bottom:60px;right:100px;" href="#">▲UP</a> 
+        </div>
+      </div>
+    </div>
+  
+    <script src="../piljin/style/lightbox-plus-jquery.js"></script>
+  </body>
+</html>
