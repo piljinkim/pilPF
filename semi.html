@@ -118,7 +118,7 @@
   $("#EMAIL").blur(function() {
     var input = $('#EMAIL').val();
     $.ajax({
-      url : "<%= request.getContextPath() %>/idCheck.me",
+      url : "&lt;%= request.getContextPath() %&gt;/idCheck.me",
       type : 'post',
       data : {input:input},	
       success : function(data) {
@@ -162,11 +162,11 @@
       }
     }
     
-    var email = "<%= email %>";
-    var input = "<%= new RandomNum().excuteGenerate() %>";
+    var email = "&lt;%= email %&gt;";
+    var input = "&lt;%= new RandomNum().excuteGenerate() %&gt;";
   
     // open() : 서버와 데이터 교환 시 필요한 정보 입력(요청 방식, 대상(서버), 비동기/동기)
-    xhr.open("GET", "<%= request.getContextPath() %>/emailse.me?input="+ input + "&email=" + email, true);
+    xhr.open("GET", "&lt;%= request.getContextPath() %&gt;/emailse.me?input="+ input + "&email=" + email, true);
     
     // send() : 서버로 데이터 교환 요청
     xhr.send();
@@ -188,7 +188,7 @@
   
           if(str == "인증에 성공했습니다."){
             document.getElementsByName("OK")[0].disabled = true;
-            location.href = '<%= request.getContextPath() %>/insert.me';
+            location.href = '&lt;%= request.getContextPath() %&gt;/insert.me';
           }
           
         }else if(xhr.status == 404){
@@ -199,7 +199,7 @@
     
     var AuthenticationUser = document.getElementsByName("OO")[0].value;
     // 3. open() : 서버와 데이터 교환 시 필요한 정보 입력(요청 방식, 대상(서버), 비동기/동기)
-    xhr.open("GET", "<%= request.getContextPath() %>/emailck.me?AuthenticationUser=" + AuthenticationUser, true);
+    xhr.open("GET", "&lt;%= request.getContextPath() %&gt;/emailck.me?AuthenticationUser=" + AuthenticationUser, true);
     // 4. send() : 서버로 데이터 교환 요청
     xhr.send();
     
