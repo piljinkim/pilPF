@@ -228,9 +228,8 @@ public class MemberEmailSend extends HttpServlet {
 		String input = request.getParameter("input");
 		String email = request.getParameter("email");
 		
-		System.out.println(input + " 이게 인풋 " );
-		System.out.println(email + " 이게 이메일 ");
-		// 응답 데이터 하는 인코딩 필요
+		
+		
 		int result = gmailSend(email, input);
 		
 		response.setCharacterEncoding("utf-8");
@@ -257,11 +256,10 @@ public class MemberEmailSend extends HttpServlet {
 	}
 	
 	public static int gmailSend(String email, String input) {
-        // 발신자 이메일 패스워드 입력하고 보안 푸세요
-		// 구글의 보안 수준이 낮은 앱의 액세스로 들어가 "사용함" 으로 설정을 변경해주면 된다.
+        
 		
-		String user = "abc@gmail.com"; // 네이버일 경우 네이버 계정, gmail경우 gmail 계정
-        String password = "1234";   // 패스워드
+		String user = "abc@gmail.com"; 
+        String password = "1234";   
         
         // SMTP 서버 정보를 설정한다.
         Properties prop = new Properties();
@@ -286,15 +284,15 @@ public class MemberEmailSend extends HttpServlet {
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(email)); 
 
             // Subject
-            message.setSubject("하비랜드 회원가입 인증코드 발송"); //메일 제목을 입력
+            message.setSubject("하비랜드 회원가입 인증코드 발송"); 
 
             // Text
-            message.setText("인증코드 : " + input);    //메일 내용을 입력
+            message.setText("인증코드 : " + input);    
           
             				
             // send the message
             Transport.send(message); ////전송
-            //System.out.println("message sent successfully...");
+            
 
             return 1;
         } catch (AddressException e) {
